@@ -1,0 +1,88 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+.header {
+    background-color: #9cd0b8;
+    padding: 1rem;
+}
+
+.header-list {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+    text-transform: uppercase;
+}
+
+.header-list a {
+    font-weight: 400;
+    font-size: 16px;
+    text-decoration: none;
+    color: white;
+}
+
+.header-list a:hover {
+    color: #141619;
+}
+
+.header-list li:hover {
+    cursor: pointer;
+}
+
+.main {
+    max-width: 1208px;
+    margin: 0 auto;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 0rem;
+}
+
+.main a {
+    font-weight: 500;
+    font-size: 1.5rem;
+    text-decoration: none;
+    padding: 10px 25px;
+    border-radius: 10px;
+    border: 1px solid black;
+    color: black;
+    text-align: center;
+    margin-bottom: 10px;
+    width: 250px;
+    transition: .2s;
+}
+
+.main a:hover {
+    color: mediumslateblue;
+    border-color: mediumslateblue;
+}
+
+.main p {
+    font-size: 16px;
+    line-height: 8px;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: .5rem;
+    background-color: #9cd0b8;
+    color: white;
+}
+
+.footer p {
+    text-align: center;
+}
+
+.container {
+    padding: 50px;
+}
+
+#id_username.form-control, #id_password.form-control,
+#id_email.form-control, #id_first_name.form-control,
+#id_password1.form-control, #id_password2.form-control {
+    width: 300px;
+}
