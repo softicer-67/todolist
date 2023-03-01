@@ -19,7 +19,7 @@ services:
       - ./postgres-data:/var/lib/postgresql/data
 
   migrations:
-    image: softicer/todo-app:$GITHUB_REF_NAME-$GITHUB_RUN_ID
+    # image: softicer/todo-app:$GITHUB_REF_NAME-$GITHUB_RUN_ID
     depends_on:
       postgres:
         condition: service_healthy
@@ -28,7 +28,7 @@ services:
     command: python manage.py migrate
 
   api:
-    image: softicer/todo-app:$GITHUB_REF_NAME-$GITHUB_RUN_ID
+    # image: softicer/todo-app:$GITHUB_REF_NAME-$GITHUB_RUN_ID
     depends_on:
       postgres:
         condition: service_healthy
@@ -38,14 +38,14 @@ services:
       - ./.env:/app/.env
     command: python manage.py runserver 0.0.0.0:8000
 
-  bot:
-    image: softicer/todo-app:$GITHUB_REF_NAME-$GITHUB_RUN_ID
-    depends_on:
-      postgres:
-        condition: service_healthy
-    volumes:
-      - ./.env:/app/.env
-    command: python manage.py runbot
+#  bot:
+#    image: softicer/todo-app:$GITHUB_REF_NAME-$GITHUB_RUN_ID
+#    depends_on:
+#      postgres:
+#        condition: service_healthy
+#    volumes:
+#      - ./.env:/app/.env
+#    command: python manage.py runbot
 
   front:
     image: sermalenk/skypro-front:lesson-38
