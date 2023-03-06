@@ -20,7 +20,6 @@ class SignupView(CreateAPIView):
             backend="django.contrib.auth.backends.ModelBackend",
         )
 
-
 class LoginView(GenericAPIView):
     serializer_class = LoginUserSerializer
 

@@ -6,7 +6,6 @@ from core.models import User
 
 NULLABLE = {"null": True, "blank": True}
 
-
 class DatesModelMixin(models.Model):
     class Meta:
         abstract = True
@@ -47,8 +46,8 @@ class BoardParticipant(DatesModelMixin):
     editable_choices = Role.choices
     editable_choices.pop(0)
 
-    board = models.ForeignKey(Board, on_delete=models.PROTECT)
-    user = models.ForeignKey(User, on_delete=models.PROTECT)
+    board = models.ForeignKey(Board, on_delete=models.PROTECT, related_name="participants")
+    user = models.ForeignKey(User, on_delete=models.PROTECT, related_name="participants")
     role = models.PositiveSmallIntegerField(choices=Role.choices, default=Role.owner)
 
 
@@ -57,7 +56,7 @@ class GoalCategory(DatesModelMixin):
         verbose_name = "Категория"
         verbose_name_plural = "Категории"
 
-    board = models.ForeignKey(Board, on_delete=models.PROTECT)
+    board = models.ForeignKey(Board, on_delete=models.PROTECT, related_name='categories')
     title = models.CharField(max_length=255)
     user = models.ForeignKey(User, on_delete=models.PROTECT)
     is_deleted = models.BooleanField(default=False)
@@ -97,6 +96,6 @@ class GoalComment(DatesModelMixin):
         verbose_name = "Комментарий к цели"
         verbose_name_plural = "Комментарии к целям"
 
-    user = models.ForeignKey(User, on_delete=models.PROTECT)
-    goal = models.ForeignKey(Goal, on_delete=models.PROTECT)
+    user = models.ForeignKey(User, on_delete=models.PROTECT, related_name="goal_comments")
+    goal = models.ForeignKey(Goal, on_delete=models.PROTECT, related_name="goal_comments")
     text = models.TextField()

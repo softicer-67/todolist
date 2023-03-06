@@ -13,7 +13,6 @@ from goals.models import Goal, GoalCategory
 
 logger = logging.getLogger(__name__)
 
-
 class NewGoal(BaseModel):
     cat_id: int | None = None
     goal_title: str | None = None
@@ -59,6 +58,7 @@ class Command(BaseCommand):
         else:
             self.tg_client.send_message(msg.chat.id, "[you have no categories]")
 
+
     def handle_save_select_category(self, msg: Message, tg_user: TgUser):
         if msg.text.isdigit():
             cat_id = int(msg.text)
@@ -70,6 +70,7 @@ class Command(BaseCommand):
                 self.tg_client.send_message(msg.chat.id, '[category not found]')
         else:
             self.tg_client.send_message(msg.chat.id, "[invalid category id]")
+
 
     def handle_save_new_cat(self, msg: Message, tg_user: TgUser):
         goal = NewGoal(**self.storage.get_data(tg_user.chat_id))
@@ -86,6 +87,7 @@ class Command(BaseCommand):
             self.tg_client.send_message(msg.chat.id, '[something went wrong]')
 
         self.storage.reset(tg_user.user)
+
 
     def handle_verified_user(self, msg: Message, tg_user: TgUser):
         if "/goals" in msg.text:
