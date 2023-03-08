@@ -13,3 +13,4 @@
     cd <dir>
     
     docker compose up -d
+    front: http://185.246.118.187:8080/
