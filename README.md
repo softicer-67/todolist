@@ -2,6 +2,7 @@
 
 
 Запуск проекта через Docker
+
     Подключиться по SSH ip 185.246.118.187
     login: skypro
     sudo su -
