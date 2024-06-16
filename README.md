@@ -3,16 +3,16 @@
 
 Запуск проекта через Docker
 
-    Подключиться по SSH ip 
+Подключиться по SSH ip 
 ```
 185.246.118.187
 ```
-    login: skypro
+##### login: skypro
 
 ```
 sudo su -
 ```
-    password: <pass>
+##### password: 123
 
 ```
 virtualenv env
@@ -20,11 +20,11 @@ virtualenv env
 ```
 source env/bin/activate
 ```
-    cd <dir>
+##### cd todolist
 ```
 docker compose up -d
 ```
-    front:
+##### front:
 ```
 http://185.246.118.187:8080/
 
